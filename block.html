@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>sky7 — تم حظر الحساب</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <style>
+    .block-card {
+      max-width: 550px;
+      margin: 100px auto;
+      padding: 40px;
+      text-align: center;
+    }
+    .block-icon { font-size: 4rem; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="block-card glass-card">
+    <div class="block-icon">🚫</div>
+    <h2>تم حظر حسابك</h2>
+    <p style="margin: 20px 0; color: var(--text-muted); line-height: 1.8;">
+      تم حظر حسابك من استخدام الموقع. إذا كنت تعتقد أن هذا القرار تم بالخطأ يمكنك التواصل مع الإدارة.
+    </p>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://www.facebook.com/profile.php?id=61584178882412&locale=ar_AR" target="_blank" class="btn-primary">
+        التواصل معنا على Facebook
+      </a>
+      <button id="logout-btn" class="btn-secondary">تسجيل الخروج</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, signOut } from "/js/firebase.js";
+    document.getElementById("logout-btn")?.addEventListener("click", () => {
+      signOut(auth).then(() => window.location.href = "/login");
+    });
+  </script>
+</body>
+</html>
