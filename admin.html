@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>sky7 — لوحة التحكم الإدارية</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar glass-card">
+      <div class="brand">
+        <img src="https://cdn-icons-png.flaticon.com/128/7978/7978734.png" class="logo">
+        <h2>sky7 Admin</h2>
+      </div>
+      <nav class="admin-nav">
+        <a href="/admin" class="active">📊 الرئيسية</a>
+        <a href="/users">👥 المستخدمين</a>
+        <a href="/reports">🚨 البلاغات</a>
+        <a href="/usercredentials">🎖️ توثيق الحسابات</a>
+      </nav>
+    </aside>
+
+    <main class="admin-content">
+      <header class="admin-header glass-card">
+        <h2>نظام إدارة المنصة الإحترافي</h2>
+      </header>
+
+      <section class="stats-grid">
+        <div class="stat-card glass-card">
+          <h4>إجمالي المستخدمين</h4>
+          <p id="total-users-count">0</p>
+        </div>
+        <div class="stat-card glass-card">
+          <h4>المنشورات والصور</h4>
+          <p id="total-posts-count">0</p>
+        </div>
+        <div class="stat-card glass-card">
+          <h4>الحسابات الموثقة</h4>
+          <p id="verified-users-count">0</p>
+        </div>
+        <div class="stat-card glass-card">
+          <h4>المستخدمون المحظورون</h4>
+          <p id="blocked-users-count">0</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
