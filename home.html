@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sky7 — مجتمع تصوير الطبيعة والسماء</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/7978/7978734.png" type="image/png">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <nav class="navbar glass-card">
+    <div class="nav-container">
+      <a href="/home" class="brand">
+        <img src="https://cdn-icons-png.flaticon.com/128/7978/7978734.png" alt="sky7 logo" class="logo">
+        <span class="brand-title">sky7</span>
+      </a>
+
+      <div class="search-bar">
+        <input type="text" id="global-search-input" placeholder="ابحث عن أصدقاء، صور السماء، أو وسوم...">
+        <div id="search-results-dropdown" class="glass-card hidden"></div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="/home" class="nav-item active" title="الرئيسية">🏠</a>
+        <a href="/favorite" class="nav-item" title="المفضلة">🔖</a>
+        <div class="nav-item" id="notif-btn" title="الإشعارات">
+          🔔<span class="badge" id="notif-badge">0</span>
+        </div>
+        <a href="/profile" class="nav-item user-profile-link">
+          <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" id="nav-user-avatar" alt="Profile" class="avatar-sm">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-layout">
+    <aside class="sidebar-left glass-card">
+      <div class="user-shortcut">
+        <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" id="sidebar-user-avatar" class="avatar-md">
+        <div>
+          <h4 id="sidebar-user-name">...</h4>
+          <p class="subtitle">مرحبًا بك مجددًا 👋</p>
+        </div>
+      </div>
+      <hr class="divider">
+      <ul class="nav-menu">
+        <li><a href="/home" class="active"><span>🏠</span> الصفحة الرئيسية</a></li>
+        <li><a href="/profile"><span>👤</span> الملف الشخصي</a></li>
+        <li><a href="/favorite"><span>🔖</span> الصور المحفوظة</a></li>
+        <li><a href="/users"><span>👥</span> استكشاف المصورين</a></li>
+      </ul>
+    </aside>
+
+    <section class="feed-section">
+      <div class="create-post-card glass-card">
+        <div class="create-post-header">
+          <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" id="create-post-avatar" class="avatar-md">
+          <button class="trigger-modal-btn" id="open-upload-modal">شارِك لقطتك للسماء اليوم...</button>
+        </div>
+        <div class="create-post-actions">
+          <button class="action-btn" id="btn-upload-trigger">📷 نشر صورة سماء</button>
+          <button class="action-btn">📍 تحديد الموقع</button>
+        </div>
+      </div>
+
+      <div id="posts-feed" class="posts-feed">
+        <div class="glass-card skeleton-card"></div>
+        <div class="glass-card skeleton-card"></div>
+      </div>
+    </section>
+
+    <aside class="sidebar-right glass-card">
+      <h3>الأصدقاء المتصلون</h3>
+      <div id="online-friends-list" class="friends-list"></div>
+
+      <hr class="divider">
+
+      <h3>المحادثات</h3>
+      <div id="conversations-list" class="chat-list"></div>
+    </aside>
+  </main>
+
+  <div id="upload-modal" class="modal-overlay hidden">
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <h3>إنشاء منشور جديد</h3>
+        <button class="close-btn" id="close-upload-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="post-caption" placeholder="اكتب وصفًا للقطة الطقس أو الطبيعة..."></textarea>
+        
+        <div class="image-dropzone" id="dropzone">
+          <input type="file" id="image-input" accept="image/*" class="hidden">
+          <div id="dropzone-prompt">
+            <span>📸 اضغط هنا لاختيار صورة عالية الدقة</span>
+          </div>
+          <div id="image-preview-container" class="hidden">
+            <img id="image-preview" src="" alt="Preview">
+            <button id="remove-img-btn">&times;</button>
+          </div>
+        </div>
+
+        <div id="upload-progress-bar" class="progress-bar hidden"><div class="progress"></div></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="publish-post-btn">نشر الآن</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script type="module" src="/js/firebase.js"></script>
+  <script type="module" src="/js/navigation.js"></script>
+  <script type="module" src="/js/posts.js"></script>
+  <script type="module" src="/js/reactions.js"></script>
+  <script type="module" src="/js/comments.js"></script>
+  <script type="module" src="/js/home.js"></script>
+</body>
+</html>
