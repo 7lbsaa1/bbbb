@@ -1,0 +1,92 @@
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo { width: 35px; }
+.brand-title { font-size: 1.5rem; font-weight: 900; color: var(--text-main); }
+
+.search-bar input {
+  width: 300px;
+  padding: 10px 15px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: #fff;
+  transition: var(--transition);
+}
+.search-bar input:focus { width: 350px; border-color: var(--accent-color); outline: none; }
+
+.nav-actions { display: flex; gap: 20px; align-items: center; }
+.nav-item { font-size: 1.2rem; text-decoration: none; cursor: pointer; position: relative; }
+.badge { position: absolute; top: -5px; right: -8px; background: var(--accent-color); font-size: 0.7rem; padding: 2px 6px; border-radius: var(--radius-full); }
+
+/* Layout Grid (3 Columns) */
+.main-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 25px;
+  max-width: 1400px;
+  margin: 85px auto 20px;
+  padding: 0 20px;
+}
+
+/* Sidebars */
+.sidebar-left, .sidebar-right {
+  position: sticky;
+  top: 85px;
+  height: calc(100vh - 105px);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.nav-menu { list-style: none; }
+.nav-menu li a { display: flex; gap: 10px; padding: 12px; color: var(--text-main); text-decoration: none; border-radius: var(--radius-md); transition: var(--transition); }
+.nav-menu li a:hover, .nav-menu li a.active { background: rgba(255, 255, 255, 0.05); color: var(--accent-color); }
+
+/* Posts Feed */
+.create-post-card { padding: 20px; margin-bottom: 25px; }
+.create-post-header { display: flex; gap: 15px; margin-bottom: 15px; }
+.trigger-modal-btn { flex: 1; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-glass); border-radius: var(--radius-full); text-align: right; padding: 0 20px; color: var(--text-muted); cursor: pointer; }
+.create-post-actions { display: flex; gap: 10px; }
+
+/* Post Card */
+.post-card { padding: 20px; margin-bottom: 25px; }
+.post-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.post-author-info { display: flex; gap: 12px; align-items: center; }
+.author-name-wrapper { display: flex; align-items: center; gap: 5px; }
+.verified-badge { width: 16px; height: 16px; }
+.post-time { font-size: 0.8rem; color: var(--text-muted); }
+.post-caption { margin-bottom: 15px; line-height: 1.6; }
+.post-main-image { width: 100%; border-radius: var(--radius-md); max-height: 600px; object-fit: contain; background: #000; }
+
+.post-stats { display: flex; justify-content: space-between; padding: 10px 0; font-size: 0.9rem; color: var(--text-muted); border-bottom: 1px solid var(--border-glass); margin-bottom: 10px; }
+.post-actions { display: flex; justify-content: space-between; position: relative; }
+.action-btn { background: transparent; border: none; color: var(--text-main); cursor: pointer; padding: 8px 12px; border-radius: var(--radius-sm); transition: var(--transition); }
+.action-btn:hover { background: rgba(255, 255, 255, 0.05); }
+
+/* Upload Modal & Dropzone */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 2000; display: flex; align-items: center; justify-content: center; }
+.modal-overlay.hidden { display: none; }
+.modal-content { width: 90%; max-width: 500px; padding: 20px; }
+.image-dropzone { border: 2px dashed var(--border-glass); border-radius: var(--radius-md); padding: 40px; text-align: center; cursor: pointer; margin-top: 15px; transition: var(--transition); }
+.image-dropzone:hover { border-color: var(--accent-color); background: rgba(255,43,91,0.05); }
+#image-preview { width: 100%; border-radius: var(--radius-md); }
