@@ -1,0 +1,32 @@
+/* Tablet */
+@media (max-width: 1100px) {
+  .main-layout {
+    grid-template-columns: 220px 1fr;
+  }
+  .sidebar-right {
+    display: none; /* إخفاء قائمة الأصدقاء الجانبية في التابلت */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+    margin-top: 75px;
+  }
+  .sidebar-left {
+    display: none; /* سيتم تحويلها لـ Drawer عبر JS */
+  }
+  .search-bar input {
+    width: 150px;
+  }
+  .search-bar input:focus {
+    width: 200px;
+  }
+  .post-actions {
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+}
