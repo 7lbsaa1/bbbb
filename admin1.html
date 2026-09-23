@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>sky7 — لوحة التحكم</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <style>
+    body { background: var(--bg-dark); }
+    .admin-layout { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+    .admin-sidebar { background: rgba(0,0,0,0.5); border-left: 1px solid var(--border-glass); padding: 20px; }
+    .admin-nav { list-style: none; margin-top: 30px; }
+    .admin-nav li { padding: 15px; cursor: pointer; border-radius: var(--radius-md); transition: var(--transition); }
+    .admin-nav li:hover, .admin-nav li.active { background: var(--accent-color); color: #fff; }
+    .admin-content { padding: 30px; overflow-y: auto; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .stat-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-glass); text-align: center; }
+    .stat-card h3 { font-size: 2rem; color: var(--accent-color); margin: 10px 0; }
+    .data-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border-radius: var(--radius-md); overflow: hidden; }
+    .data-table th, .data-table td { padding: 15px; text-align: right; border-bottom: 1px solid var(--border-glass); }
+    .data-table th { background: rgba(255,255,255,0.05); color: var(--accent-color); }
+    .action-btn { padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 0.8rem; }
+    .btn-danger { background: #ff4757; color: white; }
+    .btn-success { background: #2ed573; color: white; }
+  </style>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- الشريط الجانبي -->
+    <aside class="admin-sidebar">
+      <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-main); display: flex; align-items: center; gap: 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/128/7978/7978734.png" width="30"> sky7 Admin
+      </div>
+      <ul class="admin-nav">
+        <li class="active" data-target="dashboard">📊 نظرة عامة</li>
+        <li data-target="users">👥 المستخدمين</li>
+        <li data-target="posts">🖼️ المنشورات</li>
+        <li><a href="/home" style="color: inherit; text-decoration: none;">🔙 العودة للموقع</a></li>
+      </ul>
+    </aside>
+
+    <!-- المحتوى -->
+    <main class="admin-content">
+      <div id="dashboard-view" class="view-section">
+        <h2>نظرة عامة</h2>
+        <div class="stats-grid">
+          <div class="stat-card"> <span>إجمالي المستخدمين</span> <h3 id="stat-users">...</h3> </div>
+          <div class="stat-card"> <span>إجمالي المنشورات</span> <h3 id="stat-posts">...</h3> </div>
+        </div>
+      </div>
+
+      <div id="users-view" class="view-section" style="display: none;">
+        <h2>إدارة المستخدمين</h2>
+        <table class="data-table">
+          <thead><tr><th>الاسم</th><th>البريد</th><th>التوثيق</th><th>الإجراءات</th></tr></thead>
+          <tbody id="admin-users-list"></tbody>
+        </table>
+      </div>
+
+      <div id="posts-view" class="view-section" style="display: none;">
+        <h2>إدارة المنشورات</h2>
+        <div id="admin-posts-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+          <!-- سيتم حقن المنشورات هنا -->
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="toast-container"></div>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
